@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-pdf-qa-cli"
+version = "0.1.0"
+description = "Local-first Python CLI that answers questions about local PDF documents using a configurable OpenAI-compatible endpoint (default Ollama). Nothing is uploaded; text is extracted locally and Q&A sessions are saved locally."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "pypdf>=4.0",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+local-pdf-qa-cli = "local_pdf_qa.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.10"]
